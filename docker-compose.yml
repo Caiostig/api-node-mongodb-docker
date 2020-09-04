@@ -1,0 +1,20 @@
+version: '3'
+services:
+    backend:
+        image: docker-node-mongo-api
+        build: .
+        command: "node app.js"
+        ports:
+            - "3000:3000"
+        depends_on: 
+            - "mongo"
+    mongo:
+        image: "mongo"
+        ports:
+            - "27017:27017"
+    adminmongo:
+        image: mrvautin/adminmongo
+        ports:
+            - 1234:1234
+        environment:
+            - HOST=0.0.0.0

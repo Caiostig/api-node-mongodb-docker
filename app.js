@@ -3,12 +3,11 @@ const app = express();
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 require('dotenv').config()
-const config = require('./config/config')
 
-const url = config.bd_string;
-const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true };
+const DATABASE_CONNECTION = "mongodb://mongo:27017/api-users";
+const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true, useUnifiedTopology: true };
 
-mongoose.connect(url, options);
+mongoose.connect(DATABASE_CONNECTION, options);
 mongoose.set('useCreateIndex', true);
 
 //Alguns eventos que ficam ouvindo o Banco, e nos avisando sobre algum ocorrido
@@ -34,6 +33,7 @@ const usersRoute = require('./Routes/users')
 app.use('/', indexRoute);
 app.use('/users', usersRoute);
 
-app.listen(3000);
+app.listen(3000, () => 
+console.log('Iniciando a API em ambiente local na porta 3000'))
 
 module.exports = app;

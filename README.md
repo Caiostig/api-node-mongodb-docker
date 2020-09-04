@@ -1,4 +1,4 @@
-# Criação de uma API básica em Node, com Express, Mongodb e Docker
+# Criação de uma API em Node com Mongodb, usando Docker
 
 
 ## Bibliotecas utilizadas

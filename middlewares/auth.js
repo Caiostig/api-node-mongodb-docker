@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
     const token_header = req.headers.auth;
     if(!token_header) return res.status(401).send({ error: 'Token não enviado' });
 
-    jwt.verify(token_header, 'senha123', (err, decoded) => {
+    jwt.verify(token_header, process.env.TOKEN_PASS_DEV, (err, decoded) => {
         console.log('Verificação')
         console.log(decoded)
         console.log(err)
