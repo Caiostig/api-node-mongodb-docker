@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-require('dotenv').config()
+require('dotenv').config
 
-const DATABASE_CONNECTION = "mongodb://mongo:27017/api-users";
+const DATABASE_CONNECTION = "mongodb://mongo:27017/mongo-test";
 const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true, useUnifiedTopology: true };
 
 mongoose.connect(DATABASE_CONNECTION, options);
