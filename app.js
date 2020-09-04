@@ -29,9 +29,11 @@ app.use(bodyParser.json());
 
 const indexRoute = require('./Routes/index')
 const usersRoute = require('./Routes/users')
+const publicRoute = require('./Routes/public')
 
 app.use('/', indexRoute);
 app.use('/users', usersRoute);
+app.use('/public', publicRoute);
 
 app.listen(3000, () => 
 console.log('Iniciando a API em ambiente local na porta 3000'))

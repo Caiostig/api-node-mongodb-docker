@@ -7,7 +7,7 @@ const auth = require('../middlewares/auth');
 
 //Função auxiliar
 const createUserToken = (userId) => {
-    return jwt.sign({ id: userId }, 'senha123', { expiresIn: '1 day' });
+    return jwt.sign({ id: userId }, process.env.TOKEN_PASS_DEV, { expiresIn: process.env.EXPIRIES_TOKEN_DEV });
 }
 
 // /users está com autenticação, precisa logar e pegar o token

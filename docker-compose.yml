@@ -6,6 +6,9 @@ services:
         command: "node app.js"
         ports:
             - "3000:3000"
+        environment:
+            - TOKEN_PASS_DEV=senha123
+            - EXPIRIES_TOKEN_DEV=1 days
         depends_on: 
             - "mongo"
     mongo:
